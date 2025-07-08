@@ -1,3 +1,13 @@
+dns:
+    enable: true
+    ipv6: true
+    listen: '0.0.0.0:1053'
+    fake-ip-range: 28.0.0.1/8
+    enhanced-mode: fake-ip
+    fake-ip-filter: ['*', '*.lan', '*.localhost']
+    nameserver: ['https://1.1.1.1/dns-query#proxy', 'https://8.8.8.8/dns-query#proxy']
+    nameserver-policy: { 'geosite:cn,private': ['https://223.5.5.5/dns-query', 'https://1.12.12.12/dns-query'], 'geosite:geolocation-!cn': ['https://1.1.1.1/dns-query#proxy', 'https://8.8.8.8/dns-query#proxy'] }
+
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -13,8 +23,10 @@ proxy-groups:
     type: select
   - name: ♻️ 自动选择
     type: url-test
+    url: "http://www.gstatic.com/generate_204"
     include-all: true
-    interval: 300
+    lazy: true
+    interval: 7200
     tolerance: 50
   - name: 📲 电报消息
     type: select
