@@ -57,13 +57,6 @@ proxy-groups:
       - 🇺🇲 美国节点      
       - 🚀 手动切换
       - DIRECT
-  - name: 📺 巴哈姆特
-    type: select
-    proxies:
-      - 🇨🇳 香港节点
-      - 🚀 节点选择
-      - 🚀 手动切换
-      - DIRECT
   - name: 📺 哔哩哔哩
     type: select
     proxies:
@@ -345,13 +338,6 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  Bahamut:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bahamut.list
-    path: ./ruleset/Bahamut.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
   BilibiliHMT:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/BilibiliHMT.list
     path: ./ruleset/BilibiliHMT.list
@@ -431,7 +417,6 @@ rules:
   - "RULE-SET,Nintendo,🎮 游戏平台"
   - "RULE-SET,YouTube,📹 油管视频"
   - "RULE-SET,Netflix,🎥 奈飞视频"
-  - "RULE-SET,Bahamut,📺 巴哈姆特"
   - "RULE-SET,BilibiliHMT,📺 哔哩哔哩"
   - "RULE-SET,Bilibili,📺 哔哩哔哩"
   - "RULE-SET,ChinaMedia,🌏 国内媒体"
