@@ -425,7 +425,6 @@ rules:
   - "RULE-SET,BilibiliHMT,哔哩哔哩"
   - "RULE-SET,Bilibili,哔哩哔哩"
   - "RULE-SET,ChinaMedia,国内媒体"
-  - "RULE-SET,ProxyMedia,国外媒体"
   - "RULE-SET,ProxyGFWlist,节点选择"
   - "RULE-SET,ChinaDomain,国内选择"
   - "RULE-SET,ChinaCompanyIp,国内选择"
