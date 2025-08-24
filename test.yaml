@@ -73,7 +73,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png
     type: select
     proxies:
-      - 全球直连
+      - 国内选择
       - 手动切换
       - 国内节点
       - 台湾节点
@@ -124,7 +124,7 @@ proxy-groups:
       - 节点选择
       - 国内节点
       - 自动选择
-  - name: 全球直连
+  - name: 国内选择
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
     type: select
     proxies:
@@ -209,7 +209,7 @@ proxy-groups:
       - 谷歌FCM
       - 游戏平台
       - 网易音乐
-      - 全球直连
+      - 国内选择
       - 广告拦截
       - 应用净化
       - 漏网之鱼
@@ -408,13 +408,13 @@ rules:
   - "DOMAIN-SUFFIX,vc-gate.snssdk.com,抖音"
   - "DOMAIN-SUFFIX,i.snssdk.com,抖音"
   - "DOMAIN-SUFFIX,dig.bdurl.net,抖音"
-  - "RULE-SET,LocalAreaNetwork,全球直连"
-  - "RULE-SET,UnBan,全球直连"
+  - "RULE-SET,LocalAreaNetwork,国内选择"
+  - "RULE-SET,UnBan,国内选择"
   - "RULE-SET,BanAD,广告拦截"
   - "RULE-SET,BanProgramAD,应用净化"
   - "RULE-SET,GoogleFCM,谷歌FCM"
-  - "RULE-SET,GoogleCN,全球直连"
-  - "RULE-SET,SteamCN,全球直连"
+  - "RULE-SET,GoogleCN,国内选择"
+  - "RULE-SET,SteamCN,国内选择"
   - "RULE-SET,Telegram,电报消息"
   - "RULE-SET,OpenAi,OpenAi"
   - "RULE-SET,NetEaseMusic,网易音乐"
@@ -429,11 +429,11 @@ rules:
   - "RULE-SET,ChinaMedia,国内媒体"
   - "RULE-SET,ProxyMedia,国外媒体"
   - "RULE-SET,ProxyGFWlist,节点选择"
-  - "RULE-SET,ChinaDomain,全球直连"
-  - "RULE-SET,ChinaCompanyIp,全球直连"
-  - "RULE-SET,Download,全球直连"
+  - "RULE-SET,ChinaDomain,国内选择"
+  - "RULE-SET,ChinaCompanyIp,国内选择"
+  - "RULE-SET,Download,国内选择"
   - "DST-PORT,22,DIRECT"
-  - "GEOIP,CN,全球直连"
+  - "GEOIP,CN,国内选择"
   - "MATCH,漏网之鱼"
   
 
