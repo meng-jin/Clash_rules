@@ -198,24 +198,25 @@ proxy-groups:
       - 节点选择
       - 手动切换
       - 自动选择
-      - 电报消息
-      - OpenAi
-      - 抖音
-      - 油管视频
-      - 哔哩哔哩
-      - 国内媒体
-      - 谷歌FCM
-      - 游戏平台
-      - 网易音乐
-      - 国内选择
-      - 广告拦截
-      - 应用净化
-      - 漏网之鱼
       - 中国节点
       - 香港节点
       - 日本节点
       - 美国节点
       - 新加坡节点
+      - 电报消息
+      - OpenAi
+      - 抖音
+      - 油管视频
+      - 哔哩哔哩
+      - 国内选择
+      - 国内媒体
+      - 谷歌FCM
+      - 游戏平台
+      - 网易音乐
+      - 广告拦截
+      - 应用净化
+      - 漏网之鱼
+      
 rule-providers:
   LocalAreaNetwork:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
@@ -388,6 +389,7 @@ rule-providers:
 
 rules:
   - "DOMAIN-SUFFIX,snssdk.com,抖音"
+  - "DOMAIN-SUFFIX,wasu.tv,抖音"
   - "DOMAIN-SUFFIX,ixigua.com,抖音"
   - "DOMAIN-SUFFIX,amemv.com,抖音"
   - "DOMAIN-SUFFIX,ixiguavideo.com,抖音"
