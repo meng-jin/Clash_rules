@@ -408,6 +408,10 @@ rules:
   - "DOMAIN-SUFFIX,vc-gate.snssdk.com,抖音"
   - "DOMAIN-SUFFIX,i.snssdk.com,抖音"
   - "DOMAIN-SUFFIX,dig.bdurl.net,抖音"
+  - "DOMAIN-SUFFIX,music.126.net,网易音乐"
+  - "DOMAIN-SUFFIX,xycdn.com,网易音乐"
+  - "DOMAIN-SUFFIX,kuiniuca.com,网易音乐"
+  - "DOMAIN-SUFFIX,netease.com,网易音乐"
   - "RULE-SET,LocalAreaNetwork,国内选择"
   - "RULE-SET,UnBan,国内选择"
   - "RULE-SET,BanAD,广告拦截"
@@ -431,7 +435,14 @@ rules:
   - "RULE-SET,ChinaDomain,国内选择"
   - "RULE-SET,ChinaCompanyIp,国内选择"
   - "RULE-SET,Download,国内选择"
-  - "DST-PORT,22,DIRECT"
+  - 'IP-CIDR,127.0.0.0/8,DIRECT'
+  - 'IP-CIDR,172.16.0.0/12,DIRECT'
+  - 'IP-CIDR,192.168.0.0/16,DIRECT'
+  - 'IP-CIDR,10.0.0.0/8,DIRECT'
+  - 'IP-CIDR,17.0.0.0/8,DIRECT'
+  - 'IP-CIDR,100.64.0.0/10,DIRECT'
+  - 'IP-CIDR,224.0.0.0/4,DIRECT'
+  - 'IP-CIDR6,fe80::/10,DIRECT'
   - "GEOIP,CN,国内选择"
   - "MATCH,漏网之鱼"
   
