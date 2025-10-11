@@ -399,7 +399,6 @@ rules:
   - "DOMAIN-SUFFIX,iesdouyin.com,抖音"
   - "DOMAIN-SUFFIX,bytecdn.cn,抖音"
   - "DOMAIN-SUFFIX,douyinvod.com,抖音"
-  - "DOMAIN-SUFFIX,umeng.com,抖音"
   - "DOMAIN-SUFFIX,bdurl.net,抖音"
   - "DOMAIN-SUFFIX,bytegoofy.com,抖音"
   - "DOMAIN-SUFFIX,mon.snssdk.com,抖音"
@@ -408,13 +407,20 @@ rules:
   - "DOMAIN-SUFFIX,vc-gate.snssdk.com,抖音"
   - "DOMAIN-SUFFIX,i.snssdk.com,抖音"
   - "DOMAIN-SUFFIX,dig.bdurl.net,抖音"
+  - "DOMAIN-SUFFIX,zijieapi.com,抖音"
+  - "DOMAIN-SUFFIX,ecombdapi.com,抖音"
+  - "DOMAIN-SUFFIX,douyinpic.com,抖音"
   - "DOMAIN-SUFFIX,music.126.net,网易音乐"
   - "DOMAIN-SUFFIX,xycdn.com,网易音乐"
   - "DOMAIN-SUFFIX,kuiniuca.com,网易音乐"
   - "DOMAIN-SUFFIX,netease.com,网易音乐"
+  - "DOMAIN-SUFFIX,miui.com,国内选择"
+  - "DOMAIN-SUFFIX,xiaomi.com,国内选择"
+  - "DOMAIN-SUFFIX,mi-img.com,国内选择"
   - "RULE-SET,LocalAreaNetwork,国内选择"
   - "RULE-SET,UnBan,国内选择"
   - "RULE-SET,BanAD,广告拦截"
+  - "DOMAIN-SUFFIX,umeng.com,广告拦截"
   - "RULE-SET,BanProgramAD,应用净化"
   - "RULE-SET,GoogleFCM,谷歌FCM"
   - "RULE-SET,GoogleCN,国内选择"
@@ -489,4 +495,5 @@ tun:
   device: Meta
   dns-hijack: ['any:53', 'tcp://any:53']
   strict-route: true
+
   mtu: 1500
