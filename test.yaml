@@ -454,6 +454,7 @@ rules:
   - 'IP-CIDR,224.0.0.0/4,DIRECT'
   - 'IP-CIDR6,fe80::/10,DIRECT'
   - "GEOIP,CN,国内选择"
+  - 'GEOSITE,CN,国内选择'
   - "MATCH,漏网之鱼"
   
 
@@ -501,4 +502,5 @@ tun:
   strict-route: true
 
   mtu: 1500
+
 
