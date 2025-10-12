@@ -386,6 +386,13 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  秋风广告规则:
+    url: https://gcore.jsdelivr.net/gh/TG-Twilight/AWAvenue-Ads-Rule@main/Filters/AWAvenue-Ads-Rule-Clash.yaml
+    path: ./ruleset/AWAvenue-Ads-Rule-Clash.yaml
+    behavior: domain
+    interval: 86400
+    format: yaml
+    type: http
 
 rules:
   - "DOMAIN-SUFFIX,snssdk.com,抖音"
@@ -423,8 +430,8 @@ rules:
   - "DOMAIN-SUFFIX,aliyuncs.com,国内选择"
   - "RULE-SET,LocalAreaNetwork,国内选择"
   - "RULE-SET,UnBan,国内选择"
+  - "RULE-SET,秋风广告规则,广告拦截"
   - "RULE-SET,BanAD,广告拦截"
-  - "DOMAIN-SUFFIX,umeng.com,广告拦截"
   - "RULE-SET,BanProgramAD,应用净化"
   - "RULE-SET,GoogleFCM,谷歌FCM"
   - "RULE-SET,GoogleCN,国内选择"
@@ -502,6 +509,7 @@ tun:
   strict-route: true
 
   mtu: 1500
+
 
 
 
