@@ -424,8 +424,6 @@ rules:
   - "DOMAIN-SUFFIX,xycdn.com,网易音乐"
   - "DOMAIN-SUFFIX,kuiniuca.com,网易音乐"
   - "DOMAIN-SUFFIX,netease.com,网易音乐"
-  - "DOMAIN-SUFFIX,miui.com,国内选择"
-  - "DOMAIN-SUFFIX,xiaomi.com,国内选择"
   - "DOMAIN-SUFFIX,mi-img.com,国内选择"
   - "DOMAIN-SUFFIX,aliyuncs.com,国内选择"
   - "RULE-SET,LocalAreaNetwork,国内选择"
@@ -509,6 +507,7 @@ tun:
   strict-route: true
 
   mtu: 1500
+
 
 
 
