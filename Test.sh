@@ -86,12 +86,12 @@ generate_cert() {
 }
 
 get_public_ip() {
-    curl -s4m8 https://ip.sb || curl -s4m8 https://api.ipify.org
+    curl -s -4 ip.sb
 }
 
 add_socks5() {
-    read -p "请输入端口 (默认 1122): " port
-    [[ -z "$port" ]] && port=1122
+    read -p "请输入端口 (默认 1080): " port
+    [[ -z "$port" ]] && port=1080
     read -p "请输入用户名 (留空则无): " user
     password=""
     if [[ -n "$user" ]]; then
@@ -119,8 +119,8 @@ EOF
 }
 
 add_shadowsocks() {
-    read -p "请输入端口 (默认 1232): " port
-    [[ -z "$port" ]] && port=1232
+    read -p "请输入端口 (默认 8388): " port
+    [[ -z "$port" ]] && port=8388
     
     read -p "请输入密码 (留空随机): " password
     [[ -z "$password" ]] && password=$(uuidgen)
@@ -159,8 +159,8 @@ EOF
 
 add_hysteria2() {
     generate_cert
-    read -p "请输入端口 (默认 1223): " port
-    [[ -z "$port" ]] && port=1223
+    read -p "请输入端口 (默认 8443): " port
+    [[ -z "$port" ]] && port=8443
     read -p "请输入密码 (留空随机): " password
     [[ -z "$password" ]] && password=$(uuidgen)
 
