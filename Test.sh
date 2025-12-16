@@ -113,9 +113,8 @@ EOF
     fi
 
     echo -e "${GREEN}Socks5 节点已添加。${PLAIN}"
-    IP=$(get_public_ip)
-    echo -e "IP: $IP  端口: $port  用户: $user  密码: $password"
     restart_service
+    view_links
 }
 
 add_shadowsocks() {
@@ -148,13 +147,9 @@ add_shadowsocks() {
     cipher: $method
 EOF
 
-    IP=$(get_public_ip)
-    CRED=$(echo -n "$method:$password" | base64 -w 0)
-    LINK="ss://${CRED}@${IP}:${port}#Mihomo-SS"
-
     echo -e "${GREEN}Shadowsocks 节点已添加。${PLAIN}"
-    echo -e "${YELLOW}$LINK${PLAIN}"
     restart_service
+    view_links
 }
 
 add_hysteria2() {
@@ -174,12 +169,92 @@ add_hysteria2() {
     private-key: $CONFIG_DIR/server.key
 EOF
 
-    IP=$(get_public_ip)
-    LINK="hysteria2://${password}@${IP}:${port}?insecure=1&sni=mihomo.server#Mihomo-Hy2"
-
     echo -e "${GREEN}Hysteria2 节点已添加。${PLAIN}"
-    echo -e "${YELLOW}$LINK${PLAIN}"
     restart_service
+    view_links
+}
+
+print_node() {
+    local type=$1
+    local port=$2
+    local pass=$3
+    local cipher=$4
+    local user=$5
+    local ip=$6
+    
+    echo -e "---------------------------------------------------"
+    if [[ "$type" == "shadowsocks" ]]; then
+        echo -e "${GREEN}Shadowsocks (端口: $port)${PLAIN}"
+        echo -e "加密: $cipher"
+        echo -e "密码: $pass"
+        local cred=$(echo -n "${cipher}:${pass}" | base64 -w 0)
+        local link="ss://${cred}@${ip}:${port}#Mihomo-SS-${port}"
+        echo -e "链接: ${YELLOW}$link${PLAIN}"
+    elif [[ "$type" == "hysteria2" ]]; then
+        echo -e "${GREEN}Hysteria2 (端口: $port)${PLAIN}"
+        echo -e "密码: $pass"
+        local link="hysteria2://${pass}@${ip}:${port}?insecure=1&sni=mihomo.server#Mihomo-Hy2-${port}"
+        echo -e "链接: ${YELLOW}$link${PLAIN}"
+    elif [[ "$type" == "socks" ]]; then
+        echo -e "${GREEN}Socks5 (端口: $port)${PLAIN}"
+        echo -e "IP: $ip"
+        echo -e "用户: ${user:-无}"
+        echo -e "密码: ${pass:-无}"
+    fi
+}
+
+view_links() {
+    IP=$(get_public_ip)
+    echo -e "${GREEN}正在获取节点信息...${PLAIN}"
+    echo -e "当前公网 IP: ${YELLOW}$IP${PLAIN}"
+    
+    if [[ ! -f "$CONFIG_FILE" ]]; then
+        echo -e "${RED}未找到配置文件。${PLAIN}"
+        return
+    fi
+    
+    local type=""
+    local port=""
+    local pass=""
+    local cipher=""
+    local user=""
+    local in_item=0
+    
+    while IFS= read -r line; do
+        clean_line=$(echo "$line" | sed 's/^[[:space:]]*//')
+        
+        if [[ "$clean_line" == "- name:"* ]]; then
+            if [[ $in_item -eq 1 && -n "$type" ]]; then
+                 print_node "$type" "$port" "$pass" "$cipher" "$user" "$IP"
+            fi
+            type=""
+            port=""
+            pass=""
+            cipher=""
+            user=""
+            in_item=1
+            continue
+        fi
+        
+        if [[ $in_item -eq 1 ]]; then
+            if [[ "$clean_line" == "type:"* ]]; then
+                type=$(echo "$clean_line" | cut -d: -f2 | tr -d ' "')
+            elif [[ "$clean_line" == "port:"* ]]; then
+                port=$(echo "$clean_line" | cut -d: -f2 | tr -d ' "')
+            elif [[ "$clean_line" == "cipher:"* ]]; then
+                cipher=$(echo "$clean_line" | cut -d: -f2 | tr -d ' "')
+            elif [[ "$clean_line" == "password:"* ]]; then
+                pass=$(echo "$clean_line" | cut -d: -f2 | tr -d ' "')
+            elif [[ "$clean_line" == "- username:"* ]]; then
+                user=$(echo "$clean_line" | cut -d: -f2 | tr -d ' "')
+            fi
+        fi
+    done < "$CONFIG_FILE"
+    
+    if [[ $in_item -eq 1 && -n "$type" ]]; then
+         print_node "$type" "$port" "$pass" "$cipher" "$user" "$IP"
+    fi
+    echo -e "---------------------------------------------------"
 }
 
 restart_service() {
@@ -208,6 +283,7 @@ show_menu() {
     echo "5. 查看配置文件"
     echo "6. 查看日志"
     echo "7. 重启服务"
+    echo "8. 查看节点链接"
     echo "0. 退出"
     read -p "请输入选项: " num
 
@@ -219,6 +295,7 @@ show_menu() {
         5) view_config ;;
         6) view_log ;;
         7) restart_service ;;
+        8) view_links ;;
         0) exit 0 ;;
         *) echo "无效选项" ;;
     esac
