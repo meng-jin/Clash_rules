@@ -232,13 +232,6 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  BanAD:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
-    path: ./ruleset/BanAD.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
   BanProgramAD:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanProgramAD.list
     path: ./ruleset/BanProgramAD.list
@@ -246,16 +239,16 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  CNASN:
+    type: http
+    behavior: classical
+    format: text
+    path: ./rules/cnasn.list
+    url: "https://raw.githubusercontent.com/skyrocketingHong/ASN-China/main/ASN.China.list"
+    interval: 86400
   GoogleFCM:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/GoogleFCM.list
     path: ./ruleset/GoogleFCM.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  GoogleCN:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list
-    path: ./ruleset/GoogleCN.list
     behavior: classical
     interval: 86400
     format: text
@@ -430,10 +423,8 @@ rules:
   - "RULE-SET,LocalAreaNetwork,国内选择"
   - "RULE-SET,UnBan,国内选择"
   - "RULE-SET,秋风广告规则,广告拦截"
-  - "RULE-SET,BanAD,广告拦截"
   - "RULE-SET,BanProgramAD,应用净化"
   - "RULE-SET,GoogleFCM,谷歌FCM"
-  - "RULE-SET,GoogleCN,国内选择"
   - "RULE-SET,SteamCN,国内选择"
   - "RULE-SET,Telegram,电报消息"
   - "RULE-SET,OpenAi,OpenAi"
@@ -451,15 +442,8 @@ rules:
   - "RULE-SET,ChinaDomain,国内选择"
   - "RULE-SET,ChinaCompanyIp,国内选择"
   - "RULE-SET,Download,国内选择"
+  - "RULE-SET,CNASN,国内选择"
   - "IP-CIDR,127.0.0.0/8,DIRECT"
-  - "IP-CIDR,172.16.0.0/12,DIRECT"
-  - "IP-CIDR,192.168.0.0/16,DIRECT"
-  - "IP-CIDR,10.0.0.0/8,DIRECT"
-  - "IP-CIDR,17.0.0.0/8,DIRECT"
-  - "IP-CIDR,100.64.0.0/10,DIRECT"
-  - "IP-CIDR,224.0.0.0/4,DIRECT"
-  - "IP-CIDR6,fe80::/10,DIRECT"
-  - "GEOIP,CN,国内选择"
   - "GEOSITE,CN,国内选择"
   - "MATCH,漏网之鱼"
   
