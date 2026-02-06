@@ -4,7 +4,6 @@ proxy-groups:
     type: select
     proxies:
       - 自动选择
-      - 中国节点
       - 香港节点
       - 新加坡节点
       - 日本节点
@@ -45,18 +44,6 @@ proxy-groups:
       - 美国节点
       - 手动切换
       - DIRECT
-  - name: 抖音
-    type: select
-    proxies:
-      - 节点选择
-      - 自动选择
-      - 中国节点
-      - 新加坡节点
-      - 香港节点
-      - 日本节点
-      - 美国节点
-      - 手动切换
-      - DIRECT
   - name: 油管视频
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
     type: select
@@ -73,9 +60,8 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png
     type: select
     proxies:
-      - 国内选择
+      - DIRECT
       - 手动切换
-      - 中国节点
       - 香港节点
       - 日本节点
   - name: 国内媒体
@@ -83,7 +69,6 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 中国节点
       - 香港节点
       - 美国节点
       - 新加坡节点
@@ -95,7 +80,6 @@ proxy-groups:
     proxies:
       - DIRECT
       - 节点选择
-      - 中国节点
       - 自动选择
   - name: 广告拦截
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AdBlack.png
@@ -116,18 +100,11 @@ proxy-groups:
       - 节点选择
       - 自动选择
       - DIRECT
-      - 中国节点
       - 香港节点
       - 新加坡节点
       - 日本节点
       - 美国节点
       - 手动切换
-  - name: 中国节点
-    include-all: true
-    filter: (?i)中国|深圳|广州|上海|China
-    type: url-test
-    interval: 300
-    tolerance: 50
   - name: 香港节点
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
@@ -164,7 +141,6 @@ proxy-groups:
       - 节点选择
       - 手动切换
       - 自动选择
-      - 中国节点
       - 香港节点
       - 日本节点
       - 美国节点
@@ -378,6 +354,7 @@ dns:
     fallback: ['https://1.0.0.1/dns-query#proxy', 'https://8.8.4.4/dns-query#proxy']
     direct-nameserver: ['https://223.5.5.5/dns-query', 'https://1.12.12.12/dns-query']
     direct-nameserver-follow-policy: true
+
 
 
 
