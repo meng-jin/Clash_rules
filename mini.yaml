@@ -304,7 +304,7 @@ log-level: info
 ipv6: true
 allow-lan: true
 mixed-port: 1325
-unified-delay: false
+unified-delay: true
 tcp-concurrent: true
 external-controller: '127.0.0.1:1122'
 bind-address: '*'
